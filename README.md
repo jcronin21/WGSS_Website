@@ -1,13 +1,13 @@
 # WGSS_Website
 
-#Overview
+**Overview**
 
 This repository is dedicated to the development of a website for my Women's, Gender, and Sexuality Studies (WGSS) African American Women History class. The primary goal of this website is to explore the intersection of technology, artificial intelligence, and the unique challenges faced by Black Women in this context. Our central theme will be "Racism in AI: Impact on Black Women."
 
 #Project Description
 In today's digital age, technology, particularly artificial intelligence, plays an increasingly significant role in our lives. However, AI systems have been found to inherit and perpetuate biases, including racial biases. This project aims to delve into the specific issues that Black Women encounter within this landscape, shedding light on the nuances and implications of racism in AI.
 
-#Key Objectives
+**Key Objectives**
 
 Education: Provide educational resources and content to inform visitors about the intersection of racism, AI, and Black Women's experiences.
 Awareness: Raise awareness about the challenges and biases Black Women face in technology and artificial intelligence.
