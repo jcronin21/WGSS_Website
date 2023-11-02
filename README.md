@@ -29,7 +29,7 @@ Opportunities for discussion and community involvement.
 
 **Contributing**
 
-Contributions are welcome! If you'd like to contribute to this project, please feel free to:
+Contributions are not open at this time. However, If you'd like to contribute to this project, please feel free to:
 
 Submit articles, research, or case studies.
 
@@ -40,14 +40,6 @@ Share resources or relevant information.
 Participate in discussions to foster a supportive community.
 
 
-
-**Getting Started**
-
-To get started with this project:
-
-Clone the repository to your local machine.
-Contribute to the development of the website, content, or resources.
-Create a pull request to submit your contributions.
 
 
 
