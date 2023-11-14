@@ -75,3 +75,34 @@ footer {
   border-radius: 5px; /* Add rounded corners */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
 }
+/* Additional styles for the flex boxes */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.medium-box {
+  flex: 0 0 60%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.long-box {
+  flex: 0 0 90%;
+  background-color: #e0e0e0;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.small-box {
+  flex: 0 0 25%;
+  background-color: #d0d0d0;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
