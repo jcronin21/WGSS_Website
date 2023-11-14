@@ -1,0 +1,77 @@
+/* General Styles */
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #010101b8;
+  background-color: #ffffff; /* Change this to the color you prefer */
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(253, 0, 0, 0.721);
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: rgb(160, 19, 19,0.721);
+  text-decoration: none;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-container {
+  /* Set a specific width for the image container */
+  flex: 0 0 30%;
+}
+
+
+.paragraph-container {
+  /* Set a specific width for the paragraphs container */
+  flex: 0 0 60%;
+  text-align: center; /* Adjust text alignment if needed */
+}
+
+/* Style for the paragraphs */
+.paragraph-container p {
+  padding: 15px; /* Add padding to create space inside the box */
+  border: 2px solid #ccc; /* Add a border around the paragraphs */
+  border-radius: 5px; /* Add rounded corners to the border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the box */
+  background-color: #f9f9f9; /* Set a background color for the paragraphs */
+  margin: 15px 0; /* Add margin for separation between paragraphs */
+}
+
+footer {
+  background-color: #b39292;
+  color: rgb(160, 19, 19,0.721);
+  text-align: center;
+  padding: 10px;
+}
+
+.image-container img {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* This maintains the aspect ratio */
+  display: block; /* Ensures margin: auto works */
+  margin: 0 auto; /* Center the image horizontally */
+  /* Additional styling for the image */
+  border: 2px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
