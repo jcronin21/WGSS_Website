@@ -34,28 +34,17 @@ main {
   padding: 20px;
 }
 
-.image-container {
-  /* Set a specific width for the image container */
-  flex: 0 0 30%;
-}
-
-
-.paragraph-container {
-  /* Set a specific width for the paragraphs container */
-  flex: 0 0 60%;
-  text-align: center; /* Adjust text alignment if needed */
-}
-
-/* Style for the paragraphs */
+/* Paragraph Styles */
 .paragraph-container p {
-  padding: 15px; /* Add padding to create space inside the box */
-  border: 2px solid #ccc; /* Add a border around the paragraphs */
-  border-radius: 5px; /* Add rounded corners to the border */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the box */
-  background-color: #f9f9f9; /* Set a background color for the paragraphs */
-  margin: 15px 0; /* Add margin for separation between paragraphs */
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+  margin: 15px 0;
 }
 
+/* Footer Styles */
 footer {
   background-color: #f7f7f7;
   color: rgba(255, 252, 252, 0.721);
@@ -63,17 +52,18 @@ footer {
   padding: 10px;
 }
 
+/* Image Styles */
 .image-container img {
-  width: 200px; /* Adjust the width as needed */
-  height: auto; /* This maintains the aspect ratio */
-  display: block; /* Ensures margin: auto works */
-  margin: 0 auto; /* Center the image horizontally */
-  /* Additional styling for the image */
-  border: 2px solid #ccc; /* Add a border */
-  border-radius: 5px; /* Add rounded corners */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-/* Additional styles for the flex boxes */
+
+/* Flexbox Styles */
 .flex-container {
   display: flex;
   justify-content: space-between;
@@ -104,54 +94,18 @@ footer {
   border: 2px solid #ccc;
   border-radius: 5px;
 }
-/* Updated CSS for a sleek webpage appearance */
 
-#Information {
+/* About Page Styles */
+#about {
   display: flex;
+  flex-direction: column; 
   justify-content: space-around;
   padding: 20px;
 }
 
-#Introduction,
-#Insights,
-#Connecting {
-  flex: 1;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #f5f5f5;
-}
-
-#Introduction {
-  text-align: center;
-}
-
-#Insights,
-#Connecting {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-#Insights p,
-#Connecting p {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-}
-/* Updated CSS for a split layout on the About page */
-
-#about {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
 
 #about > div {
-  flex: 0 0 48%;
+  flex: 0 0 100%;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -163,26 +117,20 @@ footer {
   text-align: center;
 }
 
-#Insights,
-#Goal {
+/* User Interaction Section Styles */
+#interaction {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
-#Insights p,
-#Goal p {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+#interaction form {
+  margin-bottom: 20px;
 }
 
-.graphic {
-  text-align: center;
-  padding: 50px 0;
-}
+/* Home Section Styles */
 #home h1 {
   text-align: center;
 }
@@ -195,7 +143,8 @@ footer {
   list-style-type: disc;
   padding-left: 20px;
 }
-/* Flexbox styling for specific sections */
+
+/* Specific Section Flexbox Styles */
 #home,
 #resources,
 #interactive {
@@ -203,11 +152,51 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Additional styling as needed */
-  background-color: #f5f5f5; /* Lighter background color */
-  color: #333; /* Darker text color */
+  background-color: #f5f5f5;
+  color: #333;
   padding: 20px;
   margin: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.comment-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.comment-container {
+  flex: 0 0 48%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.comment-container h3 {
+  margin-top: 0;
+}
+
+.comment-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comment-container textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.comment-container button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-container button:hover {
+  background-color: #45a049;
 }

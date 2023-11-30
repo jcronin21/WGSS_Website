@@ -23,31 +23,102 @@
     <section id="about">
       <div id="Introduction">
         <h1>About Page</h1>
-        <p> Racism and bias in AI refer to the systemic issues within artificial intelligence systems that perpetuate or amplify prejudices present in society.
-            These biases can arise from various sources, including biased datasets, flawed algorithms, or the lack of diversity in the development and training
-            of AI systems. AI algorithms learn patterns from the data they are trained on, and if that data contains biases or reflects societal inequalities,
-            the AI can perpetuate these biases in its decision-making processes. For instance, facial recognition systems have shown biases against certain
-            ethnicities, leading to misidentification and discrimination. Furthermore, the lack of diversity among AI researchers and developers can result
-            in oversight of biases during the creation and implementation of AI systems. It's crucial to address these biases to ensure fairness, equity, and
-            accuracy in AI technologies, emphasizing ethical considerations and diverse representation in the development process.
-        </p>
+        <p>Racism and bias in AI refer to the systemic issues within artificial intelligence systems that perpetuate or amplify prejudices present in society. These biases can arise from various sources, including biased datasets, flawed algorithms, or the lack of diversity in the development and training of AI systems. AI algorithms learn patterns from the data they are trained on, and if that data contains biases or reflects societal inequalities, the AI can perpetuate these biases in its decision-making processes. For instance, facial recognition systems have shown biases against certain ethnicities, leading to misidentification and discrimination. Furthermore, the lack of diversity among AI researchers and developers can result in oversight of biases during the creation and implementation of AI systems. It's crucial to address these biases to ensure fairness, equity, and accuracy in AI technologies, emphasizing ethical considerations and diverse representation in the development process.</p>
       </div>
-      <div id="Insights">
-        <h2>Insights</h2>
-        <p>Insights content...</p>
-      </div>
-      <div id="Goal">
-        <h2>My Goal for this Webpage</h2>
-        <p>My Goal for this Webpage is to educate people and shed light on this topic as AI has impacted many of our lives, all in such different ways.</p>
-      </div>
+      
+      <section id="interaction">
+        <h2>Answer a question or ask a question:</h2>
+        <div class="comment-section">
+          <div class="comment-container">
+            <h3>Question 1:</h3>
+            <form id="comment-form-1">
+              <label for="comment-1">Post your comment:</label>
+              <textarea id="comment-1" name="comment" rows="4" cols="50"></textarea>
+              <button type="submit">Submit</button>
+            </form>
+            <div id="comments-1">
+              <!-- Existing or future comments for Question 1 can go here -->
+            </div>
+          </div>
+
+          <div class="comment-container">
+            <h3>Question 2:</h3>
+            <form id="comment-form-2">
+              <label for="comment-2">Post your comment:</label>
+              <textarea id="comment-2" name="comment" rows="4" cols="50"></textarea>
+              <button type="submit">Submit</button>
+            </form>
+            <div id="comments-2">
+              <!-- Existing or future comments for Question 2 can go here -->
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
-    <div class="graphic">
-      <!-- Your graphic goes here -->
-    </div>
-    
   </main>
 
-  <!-- JavaScript for smooth scrolling -->
-  <script src="scripts.js"></script>
+  <!-- JavaScript for handling comments -->
+  <script>
+    // Function to display comments for Question 1 from local storage
+    function displayCommentsQuestion1() {
+      const commentsContainer = document.getElementById('comments-1');
+      const comments = JSON.parse(localStorage.getItem('comments-1')) || [];
+
+      commentsContainer.innerHTML = '';
+      comments.forEach(comment => {
+        const commentDiv = document.createElement('div');
+        commentDiv.textContent = comment;
+        commentsContainer.appendChild(commentDiv);
+      });
+    }
+
+    // Function to display comments for Question 2 from local storage
+    function displayCommentsQuestion2() {
+      const commentsContainer = document.getElementById('comments-2');
+      const comments = JSON.parse(localStorage.getItem('comments-2')) || [];
+
+      commentsContainer.innerHTML = '';
+      comments.forEach(comment => {
+        const commentDiv = document.createElement('div');
+        commentDiv.textContent = comment;
+        commentsContainer.appendChild(commentDiv);
+      });
+    }
+
+    // Event listener for form submission for Question 1
+    const commentForm1 = document.getElementById('comment-form-1');
+    commentForm1.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const commentContent = document.getElementById('comment-1').value;
+      const comments = JSON.parse(localStorage.getItem('comments-1')) || [];
+      
+      comments.push(commentContent);
+      localStorage.setItem('comments-1', JSON.stringify(comments));
+
+      displayCommentsQuestion1();
+    });
+
+    // Event listener for form submission for Question 2
+    const commentForm2 = document.getElementById('comment-form-2');
+    commentForm2.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const commentContent = document.getElementById('comment-2').value;
+      const comments = JSON.parse(localStorage.getItem('comments-2')) || [];
+      
+      comments.push(commentContent);
+      localStorage.setItem('comments-2', JSON.stringify(comments));
+
+      displayCommentsQuestion2();
+    });
+
+    // Display comments for Question 1 and Question 2 on page load
+    window.addEventListener('load', () => {
+      displayCommentsQuestion1();
+      displayCommentsQuestion2();
+    });
+  </script>
+
 </body>
 </html>
