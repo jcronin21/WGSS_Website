@@ -124,6 +124,11 @@ footer {
   align-items: flex-start;
   margin-top: 20px;
   margin-left: 20px;
+  background-color: #ffffff; /* Set background to white */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000000; /* Set text color to black */
 }
 
 #interaction form {
