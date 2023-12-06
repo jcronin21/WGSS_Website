@@ -24,10 +24,31 @@
       <h1>Interactive Page</h1>
       <p>This is the interactive page content.</p>
 
-      
+      <textarea id="userTextInput" placeholder="Enter your text here"></textarea>
+      <button onclick="generateImage()">Generate Image</button>
+      <img id="generatedImage" src="" alt="Generated Image">
+
     </section>
   </main>
 
- 
+  <script src="https://cdn.jsdelivr.net/npm/deepai/dist/deepai.min.js"></script>
+  <script>
+    deepai.setApiKey('5312e023-141b-471b-8514-ff1c4bd5d346');
+
+    async function generateImage() {
+      const userText = document.getElementById('userTextInput').value;
+
+      try {
+        const resp = await deepai.callStandardApi("text2img", {
+          text: userText,
+        });
+
+        // Assuming the response contains a URL to the generated image
+        document.getElementById('generatedImage').src = resp.output_url;
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
 </body>
 </html>
