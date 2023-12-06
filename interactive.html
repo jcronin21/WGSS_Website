@@ -4,6 +4,40 @@
   <meta charset="UTF-8">
   <title>Interactive</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add your styles for the chat interface here */
+    #chat-container {
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .user {
+      background-color: #e0e0e0;
+      text-align: right;
+    }
+
+    .AI {
+      background-color: #f0f0f0;
+    }
+
+    #user-input {
+      width: 80%;
+      margin-right: 10px;
+    }
+
+    #send-btn {
+      padding: 8px 16px;
+    }
+  </style>
 </head>
 <body>
 
@@ -22,33 +56,89 @@
   <main>
     <section id="interactive">
       <h1>Interactive Page</h1>
-      <p>This is the interactive page content.</p>
+      <p>Below is a basic ChatGPT API model. I have the basic (free) membership, therefore, too many requests will break it.</p>
+      <p2>Want to see how I made it? Click Below!</p2>
+      <a href="https://www.youtube.com/@mr.hackathon/videos">Mr. Hackathon is a Black Youtube Creator! Click here to view his content!</a>
 
-      <textarea id="userTextInput" placeholder="Enter your text here"></textarea>
-      <button onclick="generateImage()">Generate Image</button>
-      <img id="generatedImage" src="" alt="Generated Image">
 
+      <div id="chat-container"></div>
+
+      <div>
+        <input type="text" id="user-input" placeholder="Enter your message">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+      </div>
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/deepai/dist/deepai.min.js"></script>
   <script>
-    deepai.setApiKey('5312e023-141b-471b-8514-ff1c4bd5d346');
+    async function sendMessage() {
+  const userInput = document.getElementById('user-input').value.trim();
+  if (!userInput) return;
 
-    async function generateImage() {
-      const userText = document.getElementById('userTextInput').value;
+  displayChatMessage('user', userInput);
+
+  try {
+    const chatResponse = await generateChatResponse(userInput);
+
+    if (chatResponse && chatResponse.choices && chatResponse.choices.length > 0) {
+      const text = chatResponse.choices[0].text.trim();
+      displayChatMessage('AI', text);
+    } else {
+      throw new Error('Invalid or empty response from the AI');
+    }
+  } catch (error) {
+    console.error('Error fetching or processing response:', error.message);
+    displayChatMessage('AI', 'Unfortunately ChatGPT API is down right now :(');
+  }
+
+  document.getElementById('user-input').value = '';
+}
+
+
+    async function generateChatResponse(userInput) {
+      const apiKey = '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'; // Replace with your API key
+      const endpoint = 'https://api.openai.com/v1/engines/gpt-3.5-turbo/completions';
 
       try {
-        const resp = await deepai.callStandardApi("text2img", {
-          text: userText,
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            prompt: userInput,
+            max_tokens: 256,
+            temperature: 1,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          }),
         });
 
-        // Assuming the response contains a URL to the generated image
-        document.getElementById('generatedImage').src = resp.output_url;
+        const data = await response.json();
+        return data;
       } catch (error) {
         console.error('Error:', error);
+        return { choices: [{ text: 'Error fetching response' }] };
       }
     }
+
+    function displayChatMessage(role, message) {
+      const chatContainer = document.getElementById('chat-container');
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', role);
+      messageElement.innerText = message;
+
+      chatContainer.appendChild(messageElement);
+      chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to the bottom
+    }
+
+    // Ask for initial input when the page loads
+    window.onload = function() {
+      const initialMessage = 'Welcome! Type something to start chatting.';
+      displayChatMessage('AI', initialMessage);
+    };
   </script>
 </body>
 </html>
