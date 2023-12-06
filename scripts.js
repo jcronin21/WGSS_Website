@@ -38,3 +38,26 @@ function displayComments() {
   // Display comments on page load
   window.addEventListener('load', displayComments);
   
+  // JavaScript to handle FAQ collapsible behavior
+document.addEventListener('DOMContentLoaded', function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(function(question) {
+    question.addEventListener('click', function() {
+      const answer = this.nextElementSibling;
+      if (answer.classList.contains('show')) {
+        answer.classList.remove('show');
+      } else {
+        closeAllAnswers();
+        answer.classList.add('show');
+      }
+    });
+  });
+
+  function closeAllAnswers() {
+    const faqAnswers = document.querySelectorAll('.faq-answer');
+    faqAnswers.forEach(function(answer) {
+      answer.classList.remove('show');
+    });
+  }
+});

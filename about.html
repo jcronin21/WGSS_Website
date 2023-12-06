@@ -24,6 +24,7 @@
       <div id="Introduction">
         <h1>About Page</h1>
         <p>Racism and bias in AI refer to the systemic issues within artificial intelligence systems that perpetuate or amplify prejudices present in society. These biases can arise from various sources, including biased datasets, flawed algorithms, or the lack of diversity in the development and training of AI systems. AI algorithms learn patterns from the data they are trained on, and if that data contains biases or reflects societal inequalities, the AI can perpetuate these biases in its decision-making processes. For instance, facial recognition systems have shown biases against certain ethnicities, leading to misidentification and discrimination. Furthermore, the lack of diversity among AI researchers and developers can result in oversight of biases during the creation and implementation of AI systems. It's crucial to address these biases to ensure fairness, equity, and accuracy in AI technologies, emphasizing ethical considerations and diverse representation in the development process.</p>
+       <p2>Consider the questions below. Think about them and consider answering them and/or pose a question.</p2>
       </div>
       
       <section id="interaction">
@@ -42,7 +43,7 @@
           </div>
 
           <div class="comment-container">
-            <h3>Question 2:</h3>
+            <h3>How can the widespread bias in facial recognition AI systems against Black women be effectively identified, mitigated, and rectified to ensure fair and accurate representation, while preventing discrimination and injustice in AI-powered technologies?:</h3>
             <form id="comment-form-2">
               <label for="comment-2">Post your comment:</label>
               <textarea id="comment-2" name="comment" rows="4" cols="50"></textarea>
@@ -59,7 +60,6 @@
 
   <!-- JavaScript for handling comments -->
   <script>
-    // Function to display comments for Question 1 from local storage
     function displayCommentsQuestion1() {
       const commentsContainer = document.getElementById('comments-1');
       const comments = JSON.parse(localStorage.getItem('comments-1')) || [];
@@ -72,7 +72,6 @@
       });
     }
 
-    // Function to display comments for Question 2 from local storage
     function displayCommentsQuestion2() {
       const commentsContainer = document.getElementById('comments-2');
       const comments = JSON.parse(localStorage.getItem('comments-2')) || [];
@@ -85,7 +84,6 @@
       });
     }
 
-    // Event listener for form submission for Question 1
     const commentForm1 = document.getElementById('comment-form-1');
     commentForm1.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -99,7 +97,6 @@
       displayCommentsQuestion1();
     });
 
-    // Event listener for form submission for Question 2
     const commentForm2 = document.getElementById('comment-form-2');
     commentForm2.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -113,7 +110,6 @@
       displayCommentsQuestion2();
     });
 
-    // Display comments for Question 1 and Question 2 on page load
     window.addEventListener('load', () => {
       displayCommentsQuestion1();
       displayCommentsQuestion2();

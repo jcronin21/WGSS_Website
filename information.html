@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Information</title>
+  <title>Information/FAQ's</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,8 +24,7 @@
      <!-- <h1>Imformation Page</h1>-->
       <!--<p>Introduction</p>-->
       <div id="Introduction">
-        <h1>Information</h1>
-        <p>Introduction</p>
+        <h1>Information/FAQ's</h1>
       <p>
         In the realm of computing, there exist explicit and implicit challenges 
         concerning race and ethnicity. Scholars like Ihudiya Finda Ogbonnaya-Ogburu 
@@ -59,9 +58,66 @@
       and recognition of African American womanhood in literature and academic studies.
       </p>
     </section>
+
+     <!-- FAQs -->
+     <div class="faq-item">
+      <button class="faq-question">Where can I find scholary resources on this topic?<span class="plus-sign">+</span></button>
+      <div class="faq-answer">
+        Click on the Resources tab! There are links to some scholarly sources that discuss racism in AI. 
+      </div>
+
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Question 2 <span class="plus-sign">+</span></button>
+      <div class="faq-answer">
+        Answer to Question 2
+      </div>
+
+    </div>
+    
+    </div>
+  </section>
+</main>
+
   </main>
 
   <!-- JavaScript for smooth scrolling -->
-  <script src="scripts.js"></script>
+  <script>
+    // Smooth scrolling for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Function to display comments from local storage (Add this code here if needed)
+    
+    // FAQ collapsible behavior
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(function(question) {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          if (answer.classList.contains('show')) {
+            answer.classList.remove('show');
+          } else {
+            closeAllAnswers();
+            answer.classList.add('show');
+          }
+        });
+      });
+
+      function closeAllAnswers() {
+        const faqAnswers = document.querySelectorAll('.faq-answer');
+        faqAnswers.forEach(function(answer) {
+          answer.classList.remove('show');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
